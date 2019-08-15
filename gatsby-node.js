@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createPage({
     path: basePath,
-    component: require.resolve('./src/components/layouts/post-list-template.js')
+    component: require.resolve('./src/components/layouts/page-list-template.js')
   });
 
   const result = await graphql(`
@@ -86,7 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
       // (or `node.frontmatter.slug`)
       path: `/${basePath}/${node.fields.slug}`.replace(/\/\/+/g, "/"),
       // This component will wrap our MDX content
-      component: require.resolve(`./src/components/layouts/post-layout.js`),
+      component: require.resolve(`./src/components/layouts/page-layout.js`),
       // We can use the values in this context in
       // our page layout component
       context: { 

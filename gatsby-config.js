@@ -41,7 +41,7 @@ module.exports = ({contentPath = '/src/content/blog-posts', basePath = '/blog'})
             },
           ],
           defaultLayouts: {
-            posts: require.resolve("./src/components/layouts/post-layout.js"),
+            posts: require.resolve("./src/components/layouts/page-layout.js"),
             default: require.resolve("./src/components/layouts/default-page-layout.js"),
           },
         },

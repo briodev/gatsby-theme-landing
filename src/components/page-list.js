@@ -4,17 +4,17 @@ import styled from '@emotion/styled'
 import { Styled } from 'theme-ui'
 import {Container} from 'theme-ui'
 
-import SEO from '../components/seo'
+import SEO from './seo'
 
 export default (props) => {
-  const posts = props.posts
+  const pages = props.pages
   const basePath = props.basePath.path
   return (
       <>
         <SEO title="Landing" />
         <Container>
             <h1>Landing Pages</h1>
-            {posts ? posts.map(({ node }) => (
+            {pages ? pages.map(({ node }) => (
               <div key={node.id}>
                 <Styled.a as={Link} to={`${basePath}${node.fields.slug}`}>
                   <MarkerHeader>{node.frontmatter.title} </MarkerHeader>

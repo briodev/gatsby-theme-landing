@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from './default-page-layout';
-import PostList from '../post-list';
+import PageList from '../page-list';
 
-const PostsTemplate = (path) => {
+const PagesTemplate = (path) => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(sort: {order: DESC, fields: frontmatter___date}) {
@@ -34,15 +34,15 @@ const PostsTemplate = (path) => {
     }
   `)
 
-  const posts = data.allMdx.edges.filter(
-    ({ node }) => node.parent.sourceInstanceName === 'posts'
+  const pages = data.allMdx.edges.filter(
+    ({ node }) => node.parent.sourceInstanceName === 'landing-pages'
   )
   const basePath = path;
   return (
     <Layout>
-      <PostList posts={posts} basePath={basePath}/>
+      <PageList pages={pages} basePath={basePath}/>
     </Layout>
   )
 }
 
-export default PostsTemplate
+export default PagesTemplate
