@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
 import { MDXProvider } from "@mdx-js/react"
-import Box from '../ui/ui-test'
+import Box from '../shortcodes/ui-test'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import Layout from './default-page-layout'
