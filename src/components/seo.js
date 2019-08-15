@@ -134,7 +134,7 @@ const detailsQuery = graphql`
         }
       }
     }
-    sitePlugin(name: {eq: "briodev-gatsby-theme-blog"}) {
+    sitePlugin(name: {eq: "briodev-gatsby-theme-landing"}) {
       pluginOptions {
         basePath
       }

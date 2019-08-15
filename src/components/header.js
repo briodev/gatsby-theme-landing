@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => (
     <Content>
       <p>
         <HomeLink to="/">{siteTitle}</HomeLink>
-        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/landing-pages">Landing Pages</NavLink>
         <ExtLink href="https://github.com/niklasmtj/gatsby-starter-julia">GitHub</ExtLink>
       </p>
     </Content>

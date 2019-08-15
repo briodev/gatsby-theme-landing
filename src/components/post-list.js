@@ -6,6 +6,31 @@ import {Container} from 'theme-ui'
 
 import SEO from '../components/seo'
 
+export default (props) => {
+  const posts = props.posts
+  const basePath = props.basePath.path
+  return (
+      <>
+        <SEO title="Landing" />
+        <Container>
+            <h1>Landing Pages</h1>
+            {posts ? posts.map(({ node }) => (
+              <div key={node.id}>
+                <Styled.a as={Link} to={`${basePath}${node.fields.slug}`}>
+                  <MarkerHeader>{node.frontmatter.title} </MarkerHeader>
+                </Styled.a>
+                <div>
+                  <ArticleDate>{node.frontmatter.date}</ArticleDate>
+                  <ReadingTime>&nbsp;-&nbsp;{node.timeToRead}&nbsp;min read</ReadingTime>
+                </div>
+                <Excerpt>{node.excerpt}</Excerpt>
+              </div>
+            )): null }
+          </Container>
+      </>
+  )
+}
+
 const ArticleDate = styled.h5`
   display: inline;
   color: #606060;
@@ -29,29 +54,3 @@ const Excerpt = styled.div`
     margin: 1em 0 2em 0;
     font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 `
-
-
-export default (props) => {
-  const posts = props.posts
-  const basePath = props.basePath.path
-  return (
-      <>
-        <SEO title="Blog" />
-        <Container>
-            <h1>Blog</h1>
-            {posts ? posts.map(({ node }) => (
-              <div key={node.id}>
-                <Styled.a as={Link} to={`${basePath}${node.fields.slug}`}>
-                  <MarkerHeader>{node.frontmatter.title} </MarkerHeader>
-                </Styled.a>
-                <div>
-                  <ArticleDate>{node.frontmatter.date}</ArticleDate>
-                  <ReadingTime>&nbsp;-&nbsp;{node.timeToRead}&nbsp;min read</ReadingTime>
-                </div>
-                <Excerpt>{node.excerpt}</Excerpt>
-              </div>
-            )): null }
-          </Container>
-      </>
-  )
-}
