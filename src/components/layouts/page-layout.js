@@ -1,13 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
+import { MDXProvider } from "@mdx-js/react"
+import Box from '../ui/ui-test'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import Layout from './default-page-layout'
 import SEO from '../seo'
 
+const shortcodes = { Box }
 
-export default ({ data: { mdx } }) => {
+
+export default ({ data: { mdx } }, {children}) => {
   
   let image = null
 
@@ -34,7 +38,10 @@ export default ({ data: { mdx } }) => {
           <Heading>{mdx.frontmatter.title}</Heading>
 
           <Body>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
+            <MDXProvider components={shortcodes}>
+              {children}
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </MDXProvider>
           </Body>
 
         </PostWrapper>
